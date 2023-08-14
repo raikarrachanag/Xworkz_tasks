@@ -3,20 +3,20 @@ package encapsulation.app;
 public class Cred {
 
 	 
-	    protected String userName;
-	    protected String email;
-	    protected String cardNumber;
-	    protected String expiryDate;
-	    protected String cvv;
-	    protected double totalCreditLimit;
-	    protected double availableCredit;
-	    protected boolean hasRewards;
-	    protected boolean isInGoodStanding;
-	    protected int age;
-	    protected String address;
-	    protected String phoneNumber;
-	    protected String accountType;
-	    protected boolean isActive;
+	    private String userName;
+	    private String email;
+	    private String cardNumber;
+	    private String expiryDate;
+	    private String cvv;
+	    private double totalCreditLimit;
+	    private double availableCredit;
+	    private boolean hasRewards;
+	    private boolean isInGoodStanding;
+	    private int age;
+	    private String address;
+	    private String phoneNumber;
+	    private String accountType;
+	    private boolean isActive;
 
 	   
 	    public String getUserName() {
