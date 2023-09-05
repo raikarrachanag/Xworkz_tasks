@@ -6,7 +6,7 @@ public class PilotRepositoryImpl implements PilotRepository{
 	private int position;
 
 	@Override
-	public void Pilot_Names(String names) {
+	public void saveData(String names) {
 		System.out.println("Invoking save in PilotRepositories");
 		if(position<TOTAL_PILOTS)
 		{

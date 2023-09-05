@@ -2,25 +2,22 @@ package com.xworkz.crudOperations.app.repository;
 
 public class ArtistRepositoryImpl implements ArtistRepository{
 	
-	private String[] tools=new String[TOTAL_ITEMS];
-	
-	private int position;
 
-	@Override
-	public void items(String Tools) {
-		System.out.println("Invoking items in ArtistRepository");
-		if(position<TOTAL_ITEMS)
-		{
-			this.tools[position]=Tools;
-			System.out.println("The Artist Items are "+Tools + "at the position of "+this.position++);
-			this.position++;
+		private String[] artiests = new String[NO_OF_ARTISTS];
+		int pos;
+
+		@Override
+		public void save(String name) {
+			System.out.println("invoking save in ArtistRepositoryImpl");
+			if (this.pos < NO_OF_ARTISTS) {
+				this.artiests[pos] = name;
+				System.out.println(artiests[pos] + " is stored in position " + pos);
+				pos++;
+			} else {
+				System.err.println("Data store is full, can't store more artists");
+			}
+
 		}
-		else
-		{
-			System.out.println("index is full, no need to add the items");
-		}
-		
-	}
 	
 	
 

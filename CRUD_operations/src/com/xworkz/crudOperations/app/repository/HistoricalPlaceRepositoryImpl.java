@@ -6,7 +6,7 @@ public class HistoricalPlaceRepositoryImpl implements HistoricalPlacesRepository
 		String[] names=new String[PLACE_LIST];
 		int category;
 		@Override
-		public void venue(String names) {
+		public void save(String names) {
 
 			System.out.println("invoking list in PoliticianRepositoryimpl..");
 			if(category<PLACE_LIST)

@@ -6,7 +6,7 @@ public class MedicineRepositoryimpl implements MedicineRepository {
 	int category;
 	
 	@Override
-	public void list(String names) {
+	public void save(String names) {
 		System.out.println("invoking list in MedicineRepositoryimpl..");
 		if(category<MEDICINE_LIST)
 		{

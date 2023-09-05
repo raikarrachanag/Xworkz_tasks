@@ -4,6 +4,7 @@ public interface HistoricalPlacesRepository {
 
 		int PLACE_LIST=10;
 		
-		void venue(String names);
+
+		void save(String place);
 	}
 

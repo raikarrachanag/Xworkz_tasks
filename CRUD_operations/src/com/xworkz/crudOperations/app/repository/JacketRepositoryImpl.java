@@ -7,7 +7,7 @@ public class JacketRepositoryImpl implements JacketRepository{
 	private int position;
 
 	@Override
-	public void jackets(String jackets) {
+	public void save(String jackets) {
 		System.out.println("Invoking jackets in JacketRepository");
 		if(position<TOTAL_JACKETS)
 		{

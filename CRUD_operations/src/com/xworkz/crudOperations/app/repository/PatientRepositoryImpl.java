@@ -6,7 +6,7 @@ public class PatientRepositoryImpl implements PatientRepository {
 		int list;
 		
 		@Override
-		public void care(String names) {
+		public void saveData(String names) {
 			System.out.println("invoking care in PatientRepository...");
 			if(list<TOTAL_NAMES)
 			{
