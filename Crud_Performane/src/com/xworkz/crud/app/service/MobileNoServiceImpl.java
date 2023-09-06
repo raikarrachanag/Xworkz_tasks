@@ -1,6 +1,5 @@
 package com.xworkz.crud.app.service;
 
-import com.xworkz.crud.app.repository.CountryRepository;
 import com.xworkz.crud.app.repository.MobileNoRepository;
 
 public class MobileNoServiceImpl implements MobileNoService{
@@ -13,7 +12,7 @@ private MobileNoRepository mobilerepository;
 	public boolean validateAndSave(long number) {
 		System.out.println("invoking validateAndSave in MobileNoServiceImpl");
 
-		if (number != 0 && number > 3 && number < 20) {
+		if (number >=9000000000L && number<=9999999999L) {
 			if(!this.mobilerepository.isExists(number))
 			{
 				this.mobilerepository.save(number);
@@ -23,12 +22,12 @@ private MobileNoRepository mobilerepository;
 				System.out.println("number is already exists, please select another");
 			}
 	
-			System.out.println("Data is valid");
+			System.out.println("number is valid");
 			this.mobilerepository.save(number);
 			return true;
 	}
 		 else {
-			System.err.println("Data is invalid");
+			System.err.println("number is invalid");
 		}
 		return false;
 	}
