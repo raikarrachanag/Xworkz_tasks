@@ -1,0 +1,43 @@
+package com.xworkz.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/loginServlet")
+public class LoginServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Display the login form for GET requests
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get user input from the login form
+        String userId = request.getParameter("userId");
+        String password = request.getParameter("password");
+
+        // Perform simple authentication (replace with your own logic)
+        boolean isAuthenticated = authenticate(userId, password);
+
+        if (isAuthenticated) {
+            // Authentication successful, set user attribute and forward to success page
+            request.setAttribute("userId", userId);
+            request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
+        } else {
+            // Authentication failed, set error message and forward back to login.jsp
+            String errorMsg = "Credential Not Matching";
+            request.setAttribute("errorMsg", errorMsg);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+    }
+
+    // Replace this with your actual authentication logic (e.g., database validation)
+    private boolean authenticate(String userId, String password) {
+        return "admin".equals(userId) && "Secret".equals(password);
+    }
+}

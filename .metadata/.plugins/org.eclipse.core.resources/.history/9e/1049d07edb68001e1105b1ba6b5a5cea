@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+        <div>
+            <p>Product Name: ${name1 }</p>
+            <p>Type: ${type1 }</p>
+            <p>Price: ${price1 }</p>
+            <p>Brand: ${brand1 }</p>
+            <p>Quantity: ${quantity1 }</p>
+        </div>
+
+        <p>Price2: ${price2 }</p>
+
+        <% 
+            // Example user-provided String values
+            String price1Str = request.getAttribute("price1").toString(); // Assuming you get the price1 as a String
+            String price2Str = request.getAttribute("price2").toString(); // Assuming you get the price2 as a String
+
+            // Convert the user-provided String values to numerical values (doubles)
+            double price1 = Double.parseDouble(price1Str);
+            double price2 = Double.parseDouble(price2Str);
+
+            // Calculate the sum
+            double total = price1 + price2;
+        %>
+
+        <p><strong>Total Price:</strong> <%= total %></p>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

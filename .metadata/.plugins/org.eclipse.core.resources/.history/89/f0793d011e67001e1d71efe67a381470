@@ -1,0 +1,27 @@
+package com.xworkz.servlet;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = "/Attach", loadOnStartup=3)
+public class AbsentServlet extends HttpServlet {
+
+	public AbsentServlet() {
+		System.out.println("Running the Absent Servlet....");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res)
+	{
+		String name=req.getParameter("name");
+		String fromDate=req.getParameter("fromDate");
+		String toDate=req.getParameter("To Date");
+		String reason=req.getParameter("Reason");
+		String inform=req.getParameter("Inform");
+		
+		
+		)
+	}
+}

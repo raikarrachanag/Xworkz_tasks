@@ -1,0 +1,8 @@
+package com.xworkz.servlet;
+
+import javax.servlet.http.HttpServlet;
+
+@webServlet("/loan")
+public class LoanServlet extends HttpServlet{
+
+}

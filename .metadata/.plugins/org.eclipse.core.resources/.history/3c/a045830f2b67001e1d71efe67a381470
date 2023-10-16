@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan Application</title>
+</head>
+<body>
+<h1>Loan Application Form</h1>
+
+<form action="loan" method="POST">
+
+        <label for="">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required><br><br>
+        
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" name="fromDate" required><br>
+
+		<label for="toDate">To Date:</label>
+        <input type="date" id="toDate" name="toDate" required><br>
+        
+        <label for="reason">Reason:</label>
+        <input type="text" id="reason" name="reason"required ><br>
+        
+        <label for="inform">Informed:</label>
+        <input type="radio" id="inform" name="inform" required><br>
+        
+        
+</form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = "/Attach", loadOnStartup = 1)
+public class MatchServlet extends HttpServlet{
+
+	public MatchServlet() {
+		System.out.println("Match Object is Created");
+	}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		 req.getRequestDispatcher("Match.jsp").forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String name = req.getParameter("Tournament Name");
+		String country = req.getParameter("Hosting Country");
+		String date = req.getParameter("Match Date");
+		String team1 = req.getParameter("Team 1");
+		String team2 = req.getParameter("Team 2");
+		String team1Captain = req.getParameter("Team 1 Captain Name");
+		String team2Captain = req.getParameter("Team 2 Captain Name");
+		String Umpaire = req.getParameter("Umpaire Name");
+		String stadium = req.getParameter("Stadium Name");
+		String thirdUmpaire = req.getParameter("Third Umpaire Name");
+		String stadiumCapacity = req.getParameter("Stadium Capacity");
+		
+		System.out.println(name);
+		System.out.println(country);
+		System.out.println(date);
+		System.out.println(team1);
+		System.out.println(team2);
+		System.out.println(team1Captain);
+		System.out.println(team2Captain);
+		System.out.println(Umpaire);
+		System.out.println(stadium);
+		System.out.println(thirdUmpaire);
+		System.out.println(stadiumCapacity);
+
+			req.setAttribute("Tournament Name", name);
+			req.setAttribute("Hosting Country", country);
+			req.setAttribute("Match Date", date);
+			req.setAttribute("Team 1", team1);
+			req.setAttribute("Team 2", team2);
+			req.setAttribute("Team 1 Captain Name", team1Captain);
+			req.setAttribute("Team 2 Captain Name", team2Captain);
+			req.setAttribute("Umpaire Name", Umpaire);
+			req.setAttribute("Stadium Name", stadium);
+			req.setAttribute("Third Umpaire Name", thirdUmpaire);
+			req.setAttribute("Stadium Capacity", stadiumCapacity);
+			
+			RequestDispatcher D = req.getRequestDispatcher("MatchSuccess.jsp");
+			D.forward(req, resp);
+			
+		}
+	}
+

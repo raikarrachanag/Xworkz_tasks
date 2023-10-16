@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <style>
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Page</h1>
+    
+    <%-- Retrieve the user's ID from the session or request attribute --%>
+    <%
+        String userId = (String) request.getAttribute("userId");
+    %>
+    
+    <p class="success-message">Login Success, <%= userId %>!</p>
+    
+    <form method="post" action="Address.jsp">
+        <label for="no">No:</label>
+        <input type="text" id="no" name="no" required><br><br>
+        
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required><br><br>
+        
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street" required><br><br>
+        
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br><br>
+        
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+        
+        <input type="submit" value="Send">
+    </form>
+    
+    <form method="get" action="loginSuccess.jsp">
+        <button type="submit">Home</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet(urlPatterns = "/Attach", loadOnStartup = 1)
+public class MatchServlet extends HttpServlet {
+
+    public MatchServlet() {
+        System.out.println("Match Object is Created");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("Match.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("tournamentName");
+        String country = req.getParameter("hostingCountry");
+        String date = req.getParameter("matchDate");
+        String team1 = req.getParameter("team1");
+        String team2 = req.getParameter("team2");
+        String team1Captain = req.getParameter("team1CaptainName");
+        String team2Captain = req.getParameter("team2CaptainName");
+        String umpire = req.getParameter("umpireName");
+        String stadium = req.getParameter("stadiumName");
+        String thirdUmpire = req.getParameter("thirdUmpireName");
+        String stadiumCapacity = req.getParameter("stadiumCapacity");
+
+        req.setAttribute("name", name);
+        req.setAttribute("country", country);
+        req.setAttribute("date", date);
+        req.setAttribute("team1", team1);
+        req.setAttribute("team2", team2);
+        req.setAttribute("team1Captain", team1Captain);
+        req.setAttribute("team2Captain", team2Captain);
+        req.setAttribute("umpire", umpire);
+        req.setAttribute("stadium", stadium);
+        req.setAttribute("thirdUmpire", thirdUmpire);
+        req.setAttribute("stadiumCapacity", stadiumCapacity);
+
+        RequestDispatcher D = req.getRequestDispatcher("MatchSuccess.jsp");
+        D.forward(req, resp);
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+        <div>
+            <p>Product Name: ${productName }</p>
+            <p>Type: ${productType }</p>
+            <p>Price: ${productPrice }</p>
+            <p>Brand: ${productBrand }</p>
+            <p>Quantity: ${productQuantity }</p>
+            <p>Description: ${productDescription }</p>
+        </div>
+        
+        <p><strong>Total Price:</strong> ${productPrice + secondPrice }</p>
+    </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

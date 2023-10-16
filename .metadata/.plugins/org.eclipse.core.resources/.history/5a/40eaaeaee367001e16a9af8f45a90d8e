@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Address Page</title>
+</head>
+<body>
+    <h1>Address Page</h1>
+    
+    <%-- Retrieve the user's ID from the session or request attribute --%>
+    <%
+        String userId = (String) request.getAttribute("userId");
+    %>
+    
+    <p>Welcome, <%= userId %>!</p>
+    
+    <%-- Check if address data is available --%>
+    <c:if test="${not empty requestScope.no}">
+        <p>Address sent Successfully</p>
+        
+        <h2>Address Information:</h2>
+        <p>No: <%= request.getAttribute("no") %></p>
+        <p>State: <%= request.getAttribute("state") %></p>
+        <p>Street: <%= request.getAttribute("street") %></p>
+        <p>Country: <%= request.getAttribute("country") %></p>
+        <p>City: <%= request.getAttribute("city") %></p>
+    </c:if>
+    
+    <form method="get" action="loginSuccess.jsp">
+        <button type="submit">Home</button>
+    </form>
+</body>
+</html>

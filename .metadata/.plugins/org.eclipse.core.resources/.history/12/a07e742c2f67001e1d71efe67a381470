@@ -1,0 +1,37 @@
+package com.xworkz.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/loan")
+public class LoanServlet extends HttpServlet{
+
+	public LoanServlet()
+	{
+		System.out.println("Creating Loan Application....");
+	}
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException{
+		System.out.println("GET in Loan Application");
+		
+		res.setContentType("text/html");
+		PrintWriter writer=res.getWriter();
+		
+		writer.println("<html><head><title>Loan Application</title></head><body>");
+		writer.println("<h1>Loan Application</h1>");
+		
+		writer.println("<p><a href=\"LoanApply.jsp\">Application is Submitted Successfully, Thank you.</a></p>");
+		
+		
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+		System.out.println("POST in loan Application");
+	}
+}

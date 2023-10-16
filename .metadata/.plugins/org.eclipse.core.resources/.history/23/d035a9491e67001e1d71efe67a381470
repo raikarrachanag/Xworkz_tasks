@@ -1,0 +1,36 @@
+package com.xworkz.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Attach")
+public class AbsentServlet extends HttpServlet {
+
+    private List<String> absentStudents = new ArrayList<>();
+
+    public AbsentServlet() {
+        System.out.println("Created AbsentStudentServlet....");
+    }
+
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Handling POST request in AbsentStudentServlet....");
+
+        String studentName = req.getParameter("studentName");
+
+        if (studentName != null && !studentName.isEmpty()) {
+            absentStudents.add(studentName);
+        }
+
+        resp.sendRedirect(req.getContextPath() + "/absent-students");
+    }
+}

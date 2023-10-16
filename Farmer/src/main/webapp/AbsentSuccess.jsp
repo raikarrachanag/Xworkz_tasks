@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+    <h1>Student Marked as Absent Successfully</h1>
+    <p><a href="${pageContext.request.contextPath}/Absent.jsp">Back to Absent Students List</a></p>
+    
+   
+    
+</body>
+</html>

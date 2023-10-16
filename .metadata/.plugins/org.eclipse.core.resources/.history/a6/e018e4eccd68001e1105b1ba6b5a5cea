@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+
+        <!-- Product 1 Information -->
+        <div>
+            <p>Product Name: ${name1 }</p>
+            <p>Type: ${type1 }</p>
+            <p>Price: ${price1 }</p>
+            <p>Brand: ${brand1 }</p>
+            <p>Quantity: ${quantity1 }</p>
+            <p>Description: ${description1 }</p>
+        </div>
+
+        <!-- Product 2 Information -->
+        <div>
+            <p>Product Name: ${name2 }</p>
+            <p>Type: ${type2 }</p>
+            <p>Price: ${price2 }</p>
+            <p>Brand: ${brand2 }</p>
+            <p>Quantity: ${quantity2 }</p>
+            <p>Description: ${description2 }</p>
+        </div>
+
+        <!-- Calculate and display the total price -->
+        <p><strong>Total Price:</strong> ${totalPrice }</p>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+   
+
+ 

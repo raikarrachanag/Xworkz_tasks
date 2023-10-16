@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+        <div>
+        <p>Product Name: ${name }</p>
+        <p>Type: ${type }</p>
+        <p>Price: ${price }</p>
+        <p>Brand: ${brand }</p>
+        <p>Quantity: ${quantity }</p>
+        <p>Description: ${description }</p>
+        
+    </div>
+        
+        <% 
+            double price = Double.parseDouble(request.getParameter("price"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            double total = price * quantity;
+        %>
+        <p><strong>Total:</strong> <%= total %></p>
+    </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Loan Application</title>
+</head>
+<body>
+<h1>Loan Application Form</h1>
+
+<form action="loan" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required><br>
+
+		<label for="working">Working:</label>
+        <input type="text" id="working" name="working" required><br>
+        
+        <label for="interest">Interest:</label>
+        <input type="text" id="interest" name="interest"required ><br>
+        
+        <label for="surety">Surety:</label>
+        <input type="text" id="surety" name="surety" required><br>
+        
+        <label for="company">Company:</label>
+        <input type="text id="company" name="company" required>
+        
+        
+</form>
+</body>
+</html>

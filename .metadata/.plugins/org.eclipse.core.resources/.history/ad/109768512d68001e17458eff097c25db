@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Address Page</title>
+</head>
+<style>
+body {background-color: powderedblue; }
+h2{
+color:green;
+}
+
+</style>
+<body>
+    <h1>Address Page</h1>
+    
+
+        <h2>Address sent Successfully!!</h2>
+        
+        <h3>Address Information:</h3>
+        
+        <p>No: ${no}</p>
+        <p>State: ${state}</p>
+        <p>Street: ${street}</p>
+        <p>Country: ${country}</p>
+        <p>City: ${city}</p>
+  
+  
+    
+    <form method="get" action="LoginSuccess.jsp">
+        <button type="submit">Home</button>
+    </form>
+</body>
+</html>
+
+
+

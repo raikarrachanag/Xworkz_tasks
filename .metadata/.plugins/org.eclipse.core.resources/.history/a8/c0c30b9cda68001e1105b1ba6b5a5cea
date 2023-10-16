@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+        <div>
+            <p>Product Name: ${name1 }</p>
+            <p>Type: ${type1 }</p>
+            <p>Price: ${price1 }</p>
+            <p>Brand: ${brand1 }</p>
+            <p>Quantity: ${quantity1 }</p>
+        </div>
+
+        <p>Price2: ${price2 }</p>
+
+        <% 
+        
+        String price1Str = "price1"; // Example value for price1
+        String price2Str = "price2"; // Example value for p
+        double price1 = Double.parseDouble(price1Str);
+        double price2 = Double.parseDouble(price2Str);
+
+        // Calculate the sum
+        double sum = price1 + price2;
+
+        // Convert the result back to a String
+        String sumStr = String.valueOf(sum);
+
+        // Now, 'sumStr' contains the sum as a String
+        System.out.println("Sum: " + sumStr);
+        %>
+        <p><strong>Total Price:</strong> <%= sumStr %></p>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+package com.xworkz;
+
+public class ExceptionHandling {
+	
+	public void Create() {
+		System.out.println("Creating Create Method in ExceptionHandling....");
+	}
+	
+	public void Check() {
+		
+	}
+	
+	public void UnCheck() {
+		
+	}
+	
+	public void Event() {
+		
+	}
+	
+	public void EventHandling() {
+		
+	}
+	
+	
+
+}

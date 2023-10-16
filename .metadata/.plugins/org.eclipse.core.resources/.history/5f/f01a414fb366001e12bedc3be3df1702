@@ -1,0 +1,34 @@
+package com.excelr.assignment.java;
+
+
+
+class staticVariable {
+	
+	static String name="Rachana";
+	static int num=8;
+	static float busfee=5000.99f;
+	static double collegefee=25000.56677423233;
+	static long phoneNo=9456789043l;
+	static char letter='R';
+	static boolean isgood= true;
+	static byte age=21;
+	static short distance=330;
+	
+	public static void main(String[] args) {
+		System.out.println("Running main in Var class");
+		staticVariable v =new staticVariable();
+		System.out.println("Name of the Student: " + v.name);
+		System.out.println("Number of the Student: " + v.num);
+		System.out.println("Bus Fees: "+ v.busfee);
+		System.out.println("College Fees: "+ v.collegefee);
+		System.out.println("Phone Number: "+ v.phoneNo);
+		System.out.println("Letter: "+ v.letter);
+		System.out.println("Is She is a Good Girl: "+ v.isgood);
+		System.out.println("age: "+ v.age);
+		System.out.println("distance: "+ v.distance);
+		
+	}
+	
+}
+	
+	

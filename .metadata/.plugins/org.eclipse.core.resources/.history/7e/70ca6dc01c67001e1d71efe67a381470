@@ -1,0 +1,16 @@
+package com.xworkz.servlet;
+
+@WebServlet(urlPatterns = "/Attach", loadOnStartup=3)
+public class AbsentServlet extends HttpServlet {
+
+	public AbsentServlet() {
+		System.out.println("Running the Absent Servlet....");
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res)
+	{
+		String name=req.getParameter("name");
+		
+	}
+}

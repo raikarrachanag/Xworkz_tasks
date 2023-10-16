@@ -1,0 +1,31 @@
+package jsp;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/ProductServlet")
+public class ProductServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Retrieve form data
+        String name = request.getParameter("name");
+        String type = request.getParameter("type");
+        double price = Double.parseDouble(request.getParameter("price"));
+        String brand = request.getParameter("brand");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String description = request.getParameter("description");
+
+        request.setAttribute("productName", name);
+        request.setAttribute("productType", type);
+        request.setAttribute("productPrice", price);
+        request.setAttribute("productBrand", brand);
+        request.setAttribute("productQuantity", quantity);
+        request.setAttribute("productDescription", description);
+
+        // Forward the request to the "ProductSuccess.jsp" page
+        request.getRequestDispatcher("ProductSuccess.jsp").forward(request, response);
+    }
+}

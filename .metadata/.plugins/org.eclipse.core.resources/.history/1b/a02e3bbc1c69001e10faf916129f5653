@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var type = document.getElementById("type").value;
+            var description = document.getElementById("description").value;
+
+            // Validate name
+            if (name.length < 3 || name.length > 20) {
+                alert("Name should be between 3 and 20 characters.");
+                return false;
+            }
+
+            // Validate type (dropdown)
+            if (type === "") {
+                alert("Please select a product type.");
+                return false;
+            }
+
+            // Validate description
+            var words = description.split(' ');
+            if (words.length < 30) {
+                alert("Description should contain a minimum of 30 words.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <form action="Attach" method="post" class="design" onsubmit="return validateForm();">
+        <div>
+            <span style="color:red;">${error}</span>
+        </div>
+        <!-- Your form inputs -->
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="type">Type: </label>
+            <select class="form-control" id="type" name="type">
+                <option value="">Select</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Dress">Dress</option>
+                <option value="Shoe">Shoes</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" placeholder="Description" name="description"></textarea>
+        </div>
+        <!-- The rest of your form -->
+
+        <br><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<!-- Include Bootstrap JS and jQuery (Optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

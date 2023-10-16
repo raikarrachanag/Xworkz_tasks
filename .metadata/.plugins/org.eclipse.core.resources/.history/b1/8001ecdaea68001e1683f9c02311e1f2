@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>To Buy Product</title>
+<style>
+.product-design{
+    padding-top: 100px;
+  
+background-color:grey;
+height:100px
+
+}
+
+.design{
+padding-top: 100px;
+padding-left: 700px;
+color:white;
+}
+
+body {
+ background-image: url("https://www.libertyshoesonline.com/pub/media/catalog/product/cache/036e1f77cd3178c76f889f39e301037b/0/9/09-08-2022_pd_liberty-19.jpg");
+ background-color: #cccccc;
+}
+h4{
+ color:black;
+ }
+</style>
+</head>
+<body>
+<div class="product-design">
+<a href="product.jsp" class="design"><h2>Product</h2></a>
+</div>
+<div>
+<h1>Welcome, Customers!!</h1><h2>to one of the Best Shopping Page</h2>
+</div>
+</body>
+</html>

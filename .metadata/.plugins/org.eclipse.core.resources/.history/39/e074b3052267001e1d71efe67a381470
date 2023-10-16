@@ -1,0 +1,36 @@
+package com.xworkz.servlet;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/Attach")
+public class AbsentServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        // Extract request parameters
+    	String studentName = req.getParameter("studentName");
+        String fromDate = req.getParameter("From Date");
+        String toDate = req.getParameter("To Date");
+        String reason = req.getParameter("Reason");
+        String inform = req.getParameter("Inform");
+
+        // Process the parameters (you can perform any desired logic here)
+        // For demonstration purposes, we'll just print them to the console
+        System.out.println("Student Name: " +studentName );
+        System.out.println("From Date: " + fromDate);
+        System.out.println("To Date: " + toDate);
+        System.out.println("Reason: " + reason);
+        System.out.println("Inform: " + inform);
+
+        // Redirect to "absentSuccess.jsp"
+        res.sendRedirect("absentSuccess.jsp");
+    }
+
+    // Handle GET requests as well (optional)
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        doPost(req, res);
+    }
+}

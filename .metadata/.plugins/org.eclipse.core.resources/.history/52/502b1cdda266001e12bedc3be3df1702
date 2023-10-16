@@ -1,0 +1,85 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Information</title>
+    <style>
+        /* Style for the navigation bar */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li.navitem {
+            float: left;
+        }
+
+        li.navitem a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li.navitem a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li class="navitem"><a href="/home">Home</a></li>
+        <li class="navitem"><a href="/farmer">Farmer</a></li>
+    </ul>
+
+    <h1>Digital Form for Farmer Info!!!!</h1>
+    <form action="save" method="POST">
+        <label for="farmerName">Farmer Name:</label>
+        <input type="text" id="farmerName" name="farmerName" required><br><br>
+
+        <label for="soilType">Soil Type:</label>
+        <select id="soilType" name="soilType">
+            <option value="Red Soil">Red Soil</option>
+            <option value="Black Soil">Black Soil</option>
+        </select>
+
+        <label for="cropType">Crop Type:</label>
+        <select id="cropType" name="cropType">
+            <option value="Wheat">Wheat</option>
+            <option value="Corn">Corn</option>
+            <option value="Rice">Rice</option>
+        </select>
+
+        <label for="fertilizers">Fertilizer:</label>
+        <select id="fertilizers" name="fertilizers">
+            <option value="Urea">Urea</option>
+            <option value="Potassium">Potassium</option>
+        </select>
+
+        <label for="Season">Season:</label>
+        <select id="Season" name="Season">
+            <option value="Summer">Summer Season</option>
+            <option value="Winter">Winter Season</option>
+            <option value="Rainy">Rainy Season</option>
+        </select>
+
+        <label for="investment">Investment:</label>
+        <input type="number" id="investment" name="investment" required><br><br>
+
+        <label for="profit">Profit:</label>
+        <input type="number" id="profit" name="profit" required><br><br>
+
+        <label for="recordNo">Record Number:</label>
+        <input type="text" id="recordNo" name="recordNo" required><br><br>
+
+        <input type="submit" value="Save" style="background-color: blue; color: white;">
+    </form>
+</body>
+</html>

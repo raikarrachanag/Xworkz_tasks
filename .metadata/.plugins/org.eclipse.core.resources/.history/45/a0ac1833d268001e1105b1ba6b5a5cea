@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Success</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Product Information</h1>
+        <div>
+            <p>Product Name: ${name }</p>
+            <p>Type: ${type }</p>
+            <p>Price1: ${price }</p>
+            <p>Brand: ${brand }</p>
+            <p>Quantity: ${quantity }</p>
+        </div>
+
+        <p>Price2: ${price2 }</p>
+
+        <% 
+            double price1 = Double.parseDouble(request.getAttribute("price").toString());
+            double price2 = Double.parseDouble(request.getAttribute("price2").toString());
+            double total = price1 + price2;
+        %>
+        <p><strong>Total Price:</strong> <%= total %></p>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

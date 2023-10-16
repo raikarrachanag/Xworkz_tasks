@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Details Form</title>
+</head>
+<body>
+    <h1>Match Details Form</h1>
+    <form action="processMatchDetails.jsp" method="post">
+        <label for="tournamentName">Tournament Name:</label>
+        <input type="text" id="tournamentName" name="tournamentName" required><br>
+
+        <label for="hostingCountry">Hosting Country:</label>
+        <input type="text" id="hostingCountry" name="hostingCountry" required><br>
+
+        <label for="matchDate">Match Date:</label>
+        <input type="date" id="matchDate" name="matchDate" required><br>
+
+        <label for="team1">Team 1:</label>
+        <input type="text" id="team1" name="team1" required><br>
+
+        <label for="team2">Team 2:</label>
+        <input type="text" id="team2" name="team2" required><br>
+
+        <label for="team1CaptainName">Team 1 Captain Name:</label>
+        <input type="text" id="team1CaptainName" name="team1CaptainName" required><br>
+
+        <label for="team2CaptainName">Team 2 Captain Name:</label>
+        <input type="text" id="team2CaptainName" name="team2CaptainName" required><br>
+
+        <label for="umpireName">Umpire Name:</label>
+        <input type="text" id="umpireName" name="umpireName" required><br>
+
+        <label for="stadiumName">Stadium Name:</label>
+        <input type="text" id="stadiumName" name="stadiumName" required><br>
+
+        <label for="thirdUmpireName">Third Umpire Name:</label>
+        <input type="text" id="thirdUmpireName" name="thirdUmpireName" required><br>
+
+        <label for="stadiumCapacity">Stadium Capacity:</label>
+        <input type="number" id="stadiumCapacity" name="stadiumCapacity" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

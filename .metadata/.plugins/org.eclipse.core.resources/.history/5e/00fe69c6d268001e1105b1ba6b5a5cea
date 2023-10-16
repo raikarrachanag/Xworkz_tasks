@@ -1,0 +1,29 @@
+package jsp;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Product2Servlet")
+public class Product2Servlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("ProductSuccess.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name2 = request.getParameter("name");
+        String type2 = request.getParameter("type");
+        String price2 = request.getParameter("price");
+        String brand2 = request.getParameter("brand");
+        String quantity2 = request.getParameter("quantity");
+
+        // Set the attribute "price2" with the value of price2
+        request.setAttribute("price2", price2);
+
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+}

@@ -1,0 +1,44 @@
+package jsp;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/ProductServlet")
+public class ProductServlet extends HttpServlet {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 request.getRequestDispatcher("index.jsp").forward(request, response);
+		  
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Retrieve form data for Product1
+        String name1 = request.getParameter("name1");
+        String type1 = request.getParameter("type1");
+        double price1 = Double.parseDouble(request.getParameter("price1"));
+        String brand1 = request.getParameter("brand1");
+        int quantity1 = Integer.parseInt(request.getParameter("quantity1"));
+        String description1 = request.getParameter("description1");
+
+        // Retrieve form data for Product2
+        String name2 = request.getParameter("name2");
+        String type2 = request.getParameter("type2");
+        double price2 = Double.parseDouble(request.getParameter("price2"));
+        String brand2 = request.getParameter("brand2");
+        int quantity2 = Integer.parseInt(request.getParameter("quantity2"));
+        String description2 = request.getParameter("description2");
+
+        // Calculate the total price for Product1 and Product2
+        double totalPrice = price1 + price2;
+
+        // Set the total price and second price as request attributes
+        request.setAttribute("totalPrice", totalPrice);
+        request.setAttribute("secondPrice", price2);
+
+        // Forward the request back to "Product.jsp"
+        request.getRequestDispatcher("Product.jsp").forward(request, response);
+    }
+}
