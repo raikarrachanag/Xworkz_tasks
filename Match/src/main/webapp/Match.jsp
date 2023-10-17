@@ -1,99 +1,311 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Match Details Form</title>
-    <!-- Include Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Match</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-4">Match Details Form</h1>
-        <form action="Attach" method="post" class="design" onsubmit="return validateForm();">
-        <div class="mb-3">
-                <label for="tournamentName" class="form-label">Tournament Name:</label>
-                <input type="text" id="tournamentName" name="tournamentName" class="form-control" required>
-            </div>
+	<nav class="navbar" style="background-color: white; color: black">
+		<h2>Match Details</h2>
+		<button type="submit">
+			<a href="MatchSuccess.jsp">MatchSuccess</a>
+		</button>
 
-            <div class="mb-3">
-                <label for="hostingCountry" class="form-label">Hosting Country:</label>
-                <input type="text" id="hostingCountry" name="hostingCountry" class="form-control" required>
-            </div>
+	</nav>
 
-            <div class="mb-3">
-                <label for="matchDate" class="form-label">Match Date:</label>
-                <input type="date" id="matchDate" name="matchDate" class="form-control" required>
-            </div>
+	<form action="Attach" method="post"
+		class="p-3 mb-2 bg-secondary text-white"
+		onclick="return validateForm()">
 
-            <div class="mb-3">
-                <label for="team1" class="form-label">Team 1:</label>
-                <input type="text" id="team1" name="team1" class="form-control" required>
-            </div>
 
-            <div class="mb-3">
-                <label for="team2" class="form-label">Team 2:</label>
-                <input type="text" id="team2" name="team2" class="form-control" required>
-            </div>
+		<h1>Match Information</h1>
+		<span id="valid" style="padding-left: 80px"></span>
+		<p id="tName" />
+		<div>
+			Tournament Name : <input type="text" placeholder="tournamentName"
+				name="name" onchange="handleName()" id="name" area-required="true" />
+		</div>
+		<br>
+		<p id="hCountry" />
+		<div>
+			Hosting Country : <input type="text" placeholder="country"
+				name="country" onchange="handleCountry()" id="country"
+				area-required="true" />
+		</div>
+		<br>
+		<p id="mDate" />
+		<div>
+			Match Date : <input type="number" placeholder="date" name="date"
+				onchange="handleDate()" id="date" />
+		</div>
+		<br>
+		<p id="teamOne" />
+		<div>
+			Team 1 : <input type="text" placeholder="team1" name="team1"
+				onchange="handleTeam1()" id="team1" />
+		</div>
+		<br>
+		<p id="teamTwo" />
+		<div>
+			Team 2 : <input type="text" placeholder="team2" name="team2"
+				onchange="handleTeam2()" id="team2" />
+		</div>
+		<br>
+		<p id="c1Name" />
+		<div>
+			Team 1 Captain Name : <input type="text" placeholder="team1 CName"
+				name="team1CName" onchange="handleTeam1CName()" id="team1CName" />
+		</div>
+		<br>
+		<p id="c2Name" />
+		<div>
+			Team 2 Captain Name : <input type="text" placeholder="team2 CName"
+				name="team2CName" onchange="handleTeam2CName()" id="team2CName" />
+		</div>
+		<br>
+		<p id="uName" />
+		<div>
+			Umpire Name : <input type="text" placeholder="umpireName"
+				name="umpireName" onchange="handleUmpireName()" id="umpireName" />
+		</div>
+		<br>
+		<p id="sName" />
+		<div>
+			Stadium Name : <input type="text" placeholder="stadiumName"
+				name="stadiumName" onchange="handleStadiumName()" id="stadiumName" />
+		</div>
+		<br>
+		<p id="tUName" />
+		<div>
+			Third Umpire Name : <input type="text" placeholder="thirdUmpireName"
+				name="thirdUmpireName" onchange="handleThirdUmpireName()"
+				id="thirdUmpireName" />
+		</div>
+		<br>
+		<p id="sCapacity" />
+		<div>
+			Stadium Capacity : <input type="number"
+				placeholder="stadium capacity" name="stadiumCapacity"
+				onchange="handleStadiumCapacity()" id="stadiumCapacity" />
+		</div>
+		<br> <input type="submit" value="Submit" class="btn btn-success"
+			id="button" /> </span>
+	</form>
 
-            <div class="mb-3">
-                <label for="team1CaptainName" class="form-label">Team 1 Captain Name:</label>
-                <input type="text" id="team1CaptainName" name="team1CaptainName" class="form-control" required>
-            </div>
+	<script type="text/javascript">
+		function handleName(event) {
+			var name = document.getElementById("name");
+			console.log(name.value)
+			var button = document.getElementById("button");
+			if (name.value.length >= 3 && name.value.length < 30) {
+				document.getElementById("tName").innerHTML = "<span style='color:blue'>Tournament name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("tName").innerHTML = "<span style='color:red'>Please enter Valid Tournament name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
 
-            <div class="mb-3">
-                <label for="team2CaptainName" class="form-label">Team 2 Captain Name:</label>
-                <input type="text" id="team2CaptainName" name="team2CaptainName" class="form-control" required>
-            </div>
+		}
 
-            <div class="mb-3">
-                <label for="umpireName" class="form-label">Umpire Name:</label>
-                <input type="text" id="umpireName" name="umpireName" class="form-control" required>
-            </div>
+		function handleCountry(event) {
+			var country = document.getElementById("country");
+			console.log(country.value)
+			var button = document.getElementById("button");
+			if (country.value.length >= 3 && country.value.length < 30) {
+				document.getElementById("hCountry").innerHTML = "<span style='color:blue'>Country is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("hCountry").innerHTML = "<span style='color:red'>Please enter Valid country</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
 
-            <div class="mb-3">
-                <label for="stadiumName" class="form-label">Stadium Name:</label>
-                <input type="text" id="stadiumName" name="stadiumName" class="form-control" required>
-            </div>
+		}
 
-            <div class="mb-3">
-                <label for="thirdUmpireName" class="form-label">Third Umpire Name:</label>
-                <input type="text" id="thirdUmpireName" name="thirdUmpireName" class="form-control" required>
-            </div>
+		function handleDate(event) {
+			var date = document.getElementById("date");
+			console.log(date.value)
+			var button = document.getElementById("button");
+			if (date.value > 0 && date.value <= 31) {
+				document.getElementById("mDate").innerHTML = "<span style='color:blue'>Date is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
 
-            <div class="mb-3">
-                <label for="stadiumCapacity" class="form-label">Stadium Capacity:</label>
-                <input type="number" id="stadiumCapacity" name="stadiumCapacity" class="form-control" required>
-            </div>
+				document.getElementById("mDate").innerHTML = "<span style='color:red'>Please enter valid date</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+		}
 
-    <!-- Include Bootstrap JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script>
-    function validateForm() {
-        // Validation for text fields
-        const textFields = ["tournamentName", "hostingCountry", "team1", "team2", "team1CaptainName", "team2CaptainName", "umpireName", "stadiumName", "thirdUmpireName"];
-        for (const fieldName of textFields) {
-            const field = document.getElementById(fieldName);
-            const value = field.value.trim();
-            if (value.length < 3 || value.length > 30) {
-                alert(`${field.name} should have a minimum length of 3 and a maximum length of 30 characters.`);
-                field.focus();
-                return false;
-            }
-        }
+		function handleTeam1(event) {
+			var team1 = document.getElementById("team1");
+			console.log(team1.value)
+			var button = document.getElementById("button");
+			if (team1.value.length >= 3 && team1.value.length < 30) {
+				document.getElementById("teamOne").innerHTML = "<span style='color:blue'>Team1 name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("teamOne").innerHTML = "<span style='color:red'>Please enter Valid Team1 name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
 
-        // Validation for Stadium Capacity
-        const stadiumCapacity = document.getElementById('stadiumCapacity').value;
-        if (stadiumCapacity < 1 || stadiumCapacity > 50000) {
-            alert("Stadium Capacity should be between 1 and 50,000.");
-            document.getElementById('stadiumCapacity').focus();
-            return false;
-        }
-    }
-</script>
+		}
+
+		function handleTeam2(event) {
+			var team2 = document.getElementById("team2");
+			console.log(team2.value)
+			var button = document.getElementById("button");
+			if (team2.value.length >= 3 && team2.value.length < 30) {
+				document.getElementById("teamTwo").innerHTML = "<span style='color:blue'>Team2 name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("teamTwo").innerHTML = "<span style='color:red'>Please enter Valid Team2 name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleTeam1CName(event) {
+			var team1CName = document.getElementById("team1CName");
+			console.log(team1CName.value)
+			var button = document.getElementById("button");
+			if (team1CName.value.length >= 3 && team1CName.value.length < 30) {
+				document.getElementById("c1Name").innerHTML = "<span style='color:blue'>Team1 captain name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("c1Name").innerHTML = "<span style='color:red'>Please enter Valid Team1 captain name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleTeam2CName(event) {
+			var team2CName = document.getElementById("team2CName");
+			console.log(team2CName.value)
+			var button = document.getElementById("button");
+			if (team2CName.value.length >= 3 && team2CName.value.length < 30) {
+				document.getElementById("c2Name").innerHTML = "<span style='color:blue'>Team2 captain name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("c2Name").innerHTML = "<span style='color:red'>Please enter Valid Team2 captain name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleUmpireName(event) {
+			var umpireName = document.getElementById("umpireName");
+			console.log(umpireName.value)
+			var button = document.getElementById("button");
+			if (umpireName.value.length >= 3 && umpireName.value.length < 30) {
+				document.getElementById("uName").innerHTML = "<span style='color:blue'>Umpire name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("uName").innerHTML = "<span style='color:red'>Please enter Valid Umpire name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleStadiumName(event) {
+			var stadiumName = document.getElementById("stadiumName");
+			console.log(stadiumName.value)
+			var button = document.getElementById("button");
+			if (stadiumName.value.length >= 3 && stadiumName.value.length < 30) {
+				document.getElementById("sName").innerHTML = "<span style='color:blue'>Stadium name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("sName").innerHTML = "<span style='color:red'>Please enter Valid Stadium name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleThirdUmpireName(event) {
+			var thirdUmpireName = document.getElementById("thirdUmpireName");
+			console.log(thirdUmpireName.value)
+			var button = document.getElementById("button");
+			if (thirdUmpireName.value.length >= 3
+					&& thirdUmpireName.value.length < 30) {
+				document.getElementById("tUName").innerHTML = "<span style='color:blue'>Third umpire name is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("tUName").innerHTML = "<span style='color:red'>Please enter Valid third umpire name</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function handleStadiumCapacity(event) {
+			var stadiumCapacity = document.getElementById("stadiumCapacity");
+			console.log(stadiumCapacity.value)
+			var button = document.getElementById("button");
+			if (stadiumCapacity.value > 0 && stadiumCapacity.value <= 150000) {
+				document.getElementById("sCapacity").innerHTML = "<span style='color:blue'>Stadium capacity is valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+
+				document.getElementById("sCapacity").innerHTML = "<span style='color:red'>Please enter valid Stadium capacity</span>";
+				button.setAttribute("disabled", "");
+				return;
+			}
+
+		}
+
+		function validateForm() {
+			var name = document.getElementById("name").value;
+			var country = document.getElementById("country").value;
+			var date = document.getElementById("date").value;
+			var team1 = document.getElementById("team1").value;
+			var team2 = document.getElementById("team2").value;
+			var team1CName = document.getElementById("team1CName").value;
+			var team2CName = document.getElementById("team2CName").value;
+			var umpireName = document.getElementById("umpireName").value;
+			var stadiumName = document.getElementById("stadiumName").value;
+			var thirdUmpireName = document.getElementById("thirdUmpireName").value;
+			var stadiumCapacity = document.getElementById("stadiumCapacity").value;
+			var button = document.getElementById("button");
+			if (name.length >= 3 && name.length < 30 && country.length >= 3 && country.length < 30 && date > 0 && date <= 31 && team1.length >= 3 && 
+					team1.length < 30 && team2.length >= 3 && team2.length < 30 && team1CName.length >= 3 && team1CName.length < 30 && team2CName.length >= 3
+					&& team2CName.length < 30 && umpireName.length >= 3 && umpireName.length < 30 && stadiumName.length >= 3 && stadiumName.length < 30 && 
+					thirdUmpireName.length >= 3 && thirdUmpireName.length < 30 && stadiumCapacity > 0 && stadiumCapacity < 150000) {
+				document.getElementById("valid").innerHTML = "<span style='color:blue'>Information valid</span>";
+				button.removeAttribute("disabled");
+			} else {
+				document.getElementById("valid").innerHTML = "<span style='color:red'>Please enter Valid valid Information</span>";
+				button.setAttribute("disabled", "");
+
+			}
+		}
+	</script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+		crossorigin="anonymous"></script>
 </body>
 </html>
